@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+<section class="hero" style="text-align:center;margin-top:50px;margin-top: 100px">
+<div class="hero-body">
+<div class="container">
+<h1 class="title"style="margin-top: 200px">
+        Delete This Account ?
+</h1>
+</div>
+</div>
+</section>
+<form role="form" method="post">
+ {% csrf_token %}
+<p>このアカウントを、削除してもよろしいですか？<br>
+    このアカウントの情報が全て削除されます。
+</p>
+
+<button type="submit" class="button is-danger">削除</button>
+<br><a href="javascript:void(0);" onclick="window.history.back();" class="button is-text">キャンセル</a><br>
+<style>
+   form {
+     text-align:center;
+     margin-top:100px;
+   }
+</style>
+</form>
+{% endblock %}

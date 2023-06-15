@@ -1,0 +1,28 @@
+{% load static %}
+<div style="background-image: url( '{% static 'img/画像7.png' %}' ); margin-top:110px" hight="100%" width = "100%">
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-12 col-md-12 mx-auto" style="margin-top:120px">
+        
+        <div>
+        <strong><h1 class="fw-hevey" style="color:#ffffff;">Shall We Muscle ?</h1></strong>
+        <h2 class="lead text-white">
+          トレーニングの時間だ。
+        </h2>
+      </div>
+        <p>
+          {% if user.is_authenticated %}
+
+          <a href="{% url 'photo:post' %}" class="btn btn-primary my-2" >投稿する</a>
+          <a href="{% url 'accounts:logout' %}" class="btn btn-secondary my-2">ログアウト</a>
+          {% else %}
+
+          <a href="{% url 'accounts:signup' %}" class="btn btn-primary my-2">今すぐサインアップ</a>
+          <a href="{% url 'accounts:login' %}" class="btn btn-secondary my-2">登録済みの方はログイン</a>
+          {% endif %}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  

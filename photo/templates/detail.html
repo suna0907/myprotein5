@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Photo Detail{% endblock %}
+
+    {% block contents %}
+
+    <br>
+    <div class="container">
+   
+        <div class="row">
+            <div class="col" style="margin-top: 100px">
+                <h2 style="word-break:break-all">{{object.title}}</h2>
+                <p style="word-break:break-all">{{object.comment}}</p>
+                <br>
+                <p>{{object.posted_at}}に投稿</p>
+                <table>
+                <tr>
+                <td><p><img style="object-fit: contein;width:600px;height:500" src="{{ object.image1.url }}"></img></p></td>
+                {% if object.image2 %}
+                <td><p><img style="object-fit: contein;width:600px;height:500" src="{{ object.image2.url }}"></img></p>
+                {% endif %}
+                </tr>
+                </table>
+                {% if request.user == object.user %}
+                <form method = "POST">
+                <a href = "{% url 'photo:photo_delete' object.pk %}" class="btn btn-primary my-2" style="background-color:black">削除する</a>
+                {% endif %}
+            </div>
+        </div>
+    
+    </div>
+    {% endblock %}
